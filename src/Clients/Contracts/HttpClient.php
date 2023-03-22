@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Clients\Contracts;
 
 interface HttpClient
@@ -41,10 +43,11 @@ interface HttpClient
     public function setHeaders(array $headers): static;
 
     /**
-     * @param array $headers
+     * @param array $data
+     * @param bool $asJson
      * @return $this
      */
-    public function setBody(array $headers): static;
+    public function setBody(array $data, bool $asJson = false): static;
 
     /**
      * @param array $params
@@ -57,4 +60,9 @@ interface HttpClient
      * @return $this
      */
     public function setTimeout(int $timeout): static;
+
+    /**
+     * @return array
+     */
+    public function getError(): array;
 }
