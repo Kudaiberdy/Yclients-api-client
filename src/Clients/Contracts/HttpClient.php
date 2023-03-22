@@ -62,7 +62,12 @@ interface HttpClient
     public function setTimeout(int $timeout): static;
 
     /**
-     * @return array
+     * @return string
      */
-    public function getError(): array;
+    public function getErrMessage(): string;
+
+    /**
+     * @return int
+     */
+    public function getErrNumber(): int;
 }

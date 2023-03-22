@@ -160,11 +160,19 @@ class CurlClient implements HttpClient
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getError(): array
+    public function getErrMessage(): string
     {
-        return [curl_errno($this->ch) => curl_error($this->ch)];
+        return curl_error($this->ch);
+    }
+
+    /**
+     * @return int
+     */
+    public function getErrNumber(): int
+    {
+        return curl_errno($this->ch);
     }
 
     /**
